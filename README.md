@@ -152,23 +152,81 @@
 
 ## MODEL VIEW CONTROLLER (MVC)
 
-- Creates separation of presentation layer (what the user of the application sees in the browser/mobile device) and the business-logic or back-end (invinsible layer)
+- Creates separation of presentation layer (what the user of the application sees in the browser/mobile device) and the business-logic or back-end (invinsible layer) 
+
+- General flow of Rails application:
+  - Request made at browser
+  - Request received at router of rails application
+  - Request routed to appropriate action in a controller
+  - `Controller#action` either renders a view template or communicates with model
+  - Model communicates with database
+  - Model sends back information to controller
+  - Controller renders view
 
   ### Model
-  - User -> Post -> Article -> Stock
+  - `User -> Post -> Article -> Stock`
   - Require persistance or database (different tables for each model)
   - In rails Models are used to communicate with the tables in the application
 
   ### View
-  - home | new | friends | about_me
+  - `home | new | friends | about_me`
   - This is what the user sees in the application
   - Visible layer of the app
   - Comprises of html/css/javascript
   - To use ruby code, rails uses embedded ruby i.e (home.html.erb)
 
   ### Controller
-  - users_controller - blogs_controller
+  - `users_controller` - `blogs_controller`
   - controllers are brains of application
   - logic is written here and user requests
 
- 
+### GENERATE A VIEW
+- `rails server` starts server
+- `rails generate controller pages` generates a new controller will files associated with it
+
+## CONVENTIONAL EXPECTATIONS
+
+- Define a route that points to a controller#action
+- Have an appropriately names controller, for example: if dealing with layouts or static pages of the application, a name could pages_controller
+- Have an appropriately named action, for example: if dealing with homepage, the action/method could be named home
+- If done this way, under views, rails will expect a pages folder (named for the pages controller) and a home.html.erb template
+  ![Screen Shot 2022-11-30 at 11](Screen%20Shot%202022-11-30%20at%2011.34.35%20AM.png)
+
+## Root route, controller and more MVC - Text directions and references
+
+- To set a root route, navigate to config/routes.rb file and enter in the following code ->
+`root 'pages#home'`
+
+- In order to preview the application, you will need to start the rails server. You can start the server by navigating to the terminal and typing in the following command from your application directory followed by enter/return:
+`rails server`
+
+- You can also type `rails s` for short. Once the server starts you can open up a browser window and type in localhost:3000 to preview the app. If you are using `AWS cloud9`, (rfSCT14)
+
+- Back to the app, in order for the code to work there will need to be a pages controller and a home action within it.
+
+- Create a pages controller by navigating to the terminal/command line and typing in the following command from your application directory:
+`rails generate controller pages`
+
+- There should now be a pages_controller.rb file under app/controllers folder.
+
+- Open up this file and add the home action to it with a rendering of 'Hello World!' like below:
+
+```
+def home
+  render html: 'Hello World!'
+end
+```
+
+- Once you save this file and reload the browser preview, Hello World! should be displayed in the browser.
+
+- In order to do this the conventional way using views remove the code within the home action and leave it as an empty method/action like below:
+```
+def home
+end
+```
+- This will expect a home.html.erb template under the pages folder under views. This pages folder under the views folder was created when the pages controller was generated.
+
+Within this app/views/pages folder, create a new file called home.html.erb and add in the following code inside the file:
+`Hello World!`
+
+- Once you save this file and preview it from the browser, it should still say Hello World! as expected.

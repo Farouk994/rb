@@ -190,7 +190,9 @@
 - Have an appropriately names controller, for example: if dealing with layouts or static pages of the application, a name could pages_controller
 - Have an appropriately named action, for example: if dealing with homepage, the action/method could be named home
 - If done this way, under views, rails will expect a pages folder (named for the pages controller) and a home.html.erb template
-  ![Screen Shot 2022-11-30 at 11](Screen%20Shot%202022-11-30%20at%2011.34.35%20AM.png)
+<p align="center"> 
+<img src="./mvc.png" alt= "coursely logo" width= "500px">
+</p>
 
 ## Root route, controller and more MVC - Text directions and references
 

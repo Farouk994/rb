@@ -149,3 +149,26 @@
 - Hashing algorithm for authentication in ruby [check this doc for more info](https://www.rubydoc.info/gems/bcrypt-ruby/)
 
 - bcrypt provides method to turn string into hashed
+
+## MODEL VIEW CONTROLLER (MVC)
+
+- Creates separation of presentation layer (what the user of the application sees in the browser/mobile device) and the business-logic or back-end (invinsible layer)
+
+  ### Model
+  - User -> Post -> Article -> Stock
+  - Require persistance or database (different tables for each model)
+  - In rails Models are used to communicate with the tables in the application
+
+  ### View
+  - home | new | friends | about_me
+  - This is what the user sees in the application
+  - Visible layer of the app
+  - Comprises of html/css/javascript
+  - To use ruby code, rails uses embedded ruby i.e (home.html.erb)
+
+  ### Controller
+  - users_controller - blogs_controller
+  - controllers are brains of application
+  - logic is written here and user requests
+
+ 

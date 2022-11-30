@@ -1,5 +1,5 @@
 # require crud file 
-require_relative 'authPrac'
+require_relative 'authModule'
 
 # # won't work if not in the same dir
 # require 'crud'
